@@ -23,20 +23,32 @@ function longestCommonSubArrayWithDistinctElements() {
    console.log("Longest Common SubArray With Distinct Elements", max)
 }
 
-type Seen = {
-   [key: number]: boolean
-}
-
-// Time complexity: O(n)
+// Time complexity: O(n) - using Set
 function checkDistinctElements(array: number[]): boolean {
-   const seen: Seen = {}
+   const seen = new Set<number>();
    for (let i = 0; i < array.length; i++) {
-      if (seen[array[i]])
+      if (seen.has(array[i]))
          return false;
 
-      seen[array[i]] = true
+      seen.add(array[i])
    }
    return true
 }
+
+// type Seen = {
+//    [key: number]: boolean
+// }
+
+// // Time complexity: O(n)
+// function checkDistinctElements(array: number[]): boolean {
+//    const seen: Seen = {}
+//    for (let i = 0; i < array.length; i++) {
+//       if (seen[array[i]])
+//          return false;
+
+//       seen[array[i]] = true
+//    }
+//    return true
+// }
 
 longestCommonSubArrayWithDistinctElements();
