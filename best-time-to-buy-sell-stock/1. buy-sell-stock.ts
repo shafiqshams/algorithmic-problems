@@ -7,17 +7,35 @@
 function maxProfit(prices: number[]): number {
 
    let profit = 0;
-   for (let i = 0; i < prices.length - 1; i++) {
-      for (let j = i + 1; j < prices.length; j++) {
-         if (prices[i] < prices[j]) {
-            let newProfit = prices[j] - prices[i]
-            profit = profit < newProfit ? newProfit : profit;
-         }
-      }
-   }
-   return profit
+   let minPrice = prices[0];
 
+   for (let i = 1; i < prices.length; i++) {
+
+      if (prices[i] < minPrice)
+         minPrice = prices[i]
+
+      const currentProfit = prices[i] - minPrice;
+      profit = Math.max(profit, currentProfit)
+   }
+
+   return profit
 };
 
-const res = maxProfit([7, 1, 5, 3, 6, 4])
+const res = maxProfit([1, 2])
 console.log(res)
+
+
+
+// let min = Math.min(...prices)
+// let minIndex = prices.indexOf(min)
+// console.log(min, minIndex)
+
+
+// let max = Math.max(...prices.slice(minIndex + 1))
+// let maxIndex = prices.indexOf(max)
+// console.log(max, maxIndex)
+
+// if (maxIndex < minIndex)
+//    return 0
+
+// return max - min
