@@ -8,19 +8,19 @@
 
 function twoSumUsingHashMap(nums: number[], target: number): number[] {
 
-   const numsObj: { [key: number]: number } = {}
+      const numsObj: { [key: number]: number } = {}
 
-   // Time complexity: O(n)
-   for (let i = 0; i < nums.length; i++) {
-      let rem = target - nums[i];
-      if (rem in numsObj)
-         return [numsObj[rem], i];
+      // Time complexity: O(n)
+      for (let i = 0; i < nums.length; i++) {
+            let rem = target - nums[i];
+            if (rem in numsObj)
+                  return [numsObj[rem], i];
 
-      // Store key as value and value as index
-      numsObj[nums[i]] = i;
-   }
+            // Store key as value and value as index
+            numsObj[nums[i]] = i;
+      }
 
-   return [];
+      return [];
 };
 
 console.log(twoSumUsingHashMap([7, 11, 15, 2], 26));
