@@ -6,7 +6,7 @@
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 
-function twoSum(nums: number[], target: number): number[] {
+function twoSumUsingBruteForce(nums: number[], target: number): number[] {
    const twoSum: number[] = []
 
    if (nums.length <= 2)
@@ -23,4 +23,4 @@ function twoSum(nums: number[], target: number): number[] {
    return twoSum;
 };
 
-const res = twoSum([7, 11, 15, 2], 9);
+const res = twoSumUsingBruteForce([7, 11, 15, 2], 9);
