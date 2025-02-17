@@ -1,25 +1,21 @@
+
+// Time complexity: O(n)
+// Space complexity: reduced to O(1) instead of O(n)
 function isAnagram(s: string, t: string): boolean {
 
-   const counterOfS: { [key: string]: number } = {}
-   const counterOfT: { [key: string]: number } = {}
+   // Using only one object (hash-table)
+   const counter: { [key: string]: number } = {}
 
    if (s.length !== t.length)
       return false
 
    for (let index = 0; index < s.length; index++) {
-      counterOfS[s[index]] = (counterOfS[s[index]] || 0) + 1
-      counterOfT[t[index]] = (counterOfT[t[index]] || 0) + 1
+      counter[s[index]] = (counter[s[index]] || 0) + 1
+      counter[t[index]] = (counter[t[index]] || 0) - 1
    }
 
-   for (const key in counterOfS) {
-      if (counterOfS[key] !== counterOfT[key])
-         return false
-   }
-
-   return true
-   // return (s.split('').sort().join('') === t.split('').sort().join(''))
+   // Efficient way to verify that all character frequencies are balanced (zero)
+   return Object.values(counter).every(count => count === 0)
 };
-
-
 
 console.log(isAnagram('rat', 'tar'))
