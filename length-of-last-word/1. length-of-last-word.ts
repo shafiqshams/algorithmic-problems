@@ -14,4 +14,4 @@ function lengthOfLastWord(s: string): number {
 };
 
 
-const res = lengthOfLastWord("luffy is still joyboy");
+lengthOfLastWord("luffy is still joyboy");

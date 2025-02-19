@@ -28,5 +28,4 @@ function lengthOfLastWordOptimized(s: string): number {
 };
 
 
-let result = lengthOfLastWordOptimized("   fly me   to   the moon  ");
-console.log(result)
+lengthOfLastWordOptimized("   fly me   to   the moon  ");
