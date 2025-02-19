@@ -19,5 +19,4 @@ function kthFactor(n: number, k: number): number {
    return factorList[k - 1] ?? -1
 };
 
-const res = kthFactor(12, 3)
-console.log(res)
+kthFactor(12, 3)
