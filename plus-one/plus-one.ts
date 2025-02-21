@@ -14,9 +14,7 @@ function plusOne(digits: number[]): number[] {
       digits[i] = 0
    }
 
-   const newDigits = new Array(digits.length + 1).fill(0)
-   newDigits[0] = 1;
-   return newDigits
+   return [1, ...digits]
 };
 
 
