@@ -12,15 +12,13 @@
 // Output: "apbqcd"
 
 function mergeAlternately(word1: string, word2: string): string {
-
-   let newString: string[] = [];
+   let result: string = "";
    let len = Math.max(word1.length, word2.length)
    for (let i = 0; i < len; i++) {
-      word1.charAt(i) && newString.push(word1.charAt(i))
-      word2.charAt(i) && newString.push(word2.charAt(i))
+      result += word1.charAt(i) + word2.charAt(i);
    }
-
-   return newString.join('');
+   return result
 };
 
-mergeAlternately("abc", "pqr")
+const res = mergeAlternately("ab", "pqrs")
+console.log(res)
