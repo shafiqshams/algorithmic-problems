@@ -8,27 +8,31 @@
 // This solution is quadratic run-time as using slice and reduce inside a loop, which causes a time complexity of O(n^2).
 function productExceptSelf(nums: number[]): number[] {
 
-   const result: number[] = []
+   const n = nums.length;
+   const result: number[] = new Array(n).fill(1);
+   const prefix: number[] = new Array(n).fill(1);
+   const suffix: number[] = new Array(n).fill(1);
 
-   let leftProd: number;
-   let rightProd: number;
-
-   for (let i = 0; i < nums.length; i++) {
-      let x = nums.slice(0, i);
-      let y = nums.slice(i + 1, nums.length)
-      leftProd = computeProduct(x)
-      rightProd = computeProduct(y)
-
-      result.push(leftProd * rightProd)
+   // compute the prefix product array
+   for (let i = 1; i < n; i++) {
+      prefix[i] = prefix[i - 1] * nums[i - 1];
    }
+
+   // compute the suffix product array
+   for (let i = n - 2; i >= 0; i--) {
+      suffix[i] = suffix[i + 1] * nums[i + 1]
+   }
+
+   // compute resultant array
+   for (let i = 0; i < n; i++) {
+      result[i] = prefix[i] * suffix[i]
+   }
+
    return result
 };
-
-const computeProduct = (inputArray: number[]): number => {
-   return inputArray.reduce((total, current) => total * current, 1)
-}
 
 const res = productExceptSelf([1, 2, 3, 4])
 
 console.log(res)
+
 
