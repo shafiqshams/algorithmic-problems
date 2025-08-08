@@ -1,8 +1,3 @@
-# algorithmic-problems
-Solving data structure problems using TypeScript
+# Solutions of leetcode problems
 
-After cloning, checkout the `solutions` branch
-
-```bash
-git checkout solutions
-```
+**Solving data structure problems using TypeScript**
